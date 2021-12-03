@@ -1,7 +1,7 @@
 version: '3'
 services:
  HttpsProxy:
-    container_name: HttpsProxy
+    container_name: Https
     image: nginx
     volumes:
          - /home/dohttps/nginx/config/nginx.conf:/etc/nginx/nginx.conf/:rw
@@ -18,5 +18,5 @@ networks:
   default:
     external:
        name: wongnokproject
-  allnetwork:
+  wongnokproject:
     external: true
