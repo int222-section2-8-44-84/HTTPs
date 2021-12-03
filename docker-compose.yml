@@ -1,0 +1,22 @@
+version: '3'
+services:
+ HttpsProxy:
+    container_name: HttpsProxy
+    image: nginx
+    volumes:
+         - /home/dohttps/nginx/config/nginx.conf:/etc/nginx/nginx.conf/:rw
+         - /home/dohttps/nginx/config/conf.d/default.conf:/etc/nginx/conf.d/default.conf:rw 
+         - /home/dohttps/nginx/logs:/var/log/nginx/:rw
+         - /home/dohttps/nginx/ssl:/ssl/:rw
+    ports:
+         - "80:80"
+         - "443:443"
+    networks:
+       wongnokproject:
+          ipv4_address: 172.18.0.5
+networks:
+  default:
+    external:
+       name: wongnokproject
+  allnetwork:
+    external: true
